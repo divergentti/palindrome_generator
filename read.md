@@ -202,3 +202,11 @@ I created FormWay.py, which is quite OK result for kind of game like thing. It c
 point system etc. Currently logic is simple: three input fields, check if anagram, if anagram, check towards
 vocabulary does anagram make sense and if does, it is a palindrome! Prediction mechanism needs adjustment and
 at least it is now simplier to test with different ML-models for predictions.
+
+7.10.2024:
+
+Added QT6 visualization and combined classes together.
+
+Git do not allow long files to be uploaded. So, delete word2vec model files (both) and let script make them again.
+File size of vectors_ngrams.npy is about 800 megabytes.
+model file is about 1.5 Mb

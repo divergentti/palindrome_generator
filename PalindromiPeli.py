@@ -994,8 +994,21 @@ class MainWindow(QMainWindow):
         if not os.path.exists(model_file):
             # Tokenize words
             nltk.download('punkt')
-            self.palindrome_tokens = [word_tokenize(self.palindromes.lower()) for self.palindrome in
-                                      self.palindrome_list]
+            self.palindrome_tokens = [word_tokenize(value.lower()) for value in self.palindromes.values()]
+
+            # building a FastText model
+            self.wordlist_model = FastText(sentences=self.palindrome_tokens, vector_size=100, window=5, min_count=1,
+                                           workers=4)
+            self.wordlist_model.train(self.palindrome_tokens, total_examples=len(self.palindrome_tokens), epochs=30)
+            self.wordlist_model.save(model_file)
+
+        else:
+            try:
+                self.wordlist_model = FastText.load(model_file)
+            except FileNotFoundError as e:
+                logging.error(f"File not found: {model_file}")
+                raise e
+
 
             """            
             Alternative learning model - keep this for testing
@@ -1006,17 +1019,6 @@ class MainWindow(QMainWindow):
             self.model.save(model_file)
             """
 
-            # building a FastText model
-            self.wordlist_model = FastText(sentences=self.palindrome_tokens, vector_size=100, window=5, min_count=1, workers=4)
-            self.wordlist_model.train(self.palindrome_tokens, total_examples=len(self.palindrome_tokens), epochs=30)
-            self.wordlist_model.save(model_file)
-
-        else:
-            try:
-                self.wordlist_model = Word2Vec.load(model_file)
-            except FileNotFoundError as e:
-                logging.error(f"File not found: {model_file}")
-                raise e
 
         # Palindrome count
         self.main_ui.palindromes_lcdNumber.display(len(self.palindrome_list))

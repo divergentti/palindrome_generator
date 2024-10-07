@@ -1,0 +1,7 @@
+*.log
+*.ui
+*.npy
+form_design/
+.idea/
+__pycache__/
+/.venv/

@@ -50,18 +50,19 @@ import logging
 import pandas as pd
 
 try:
-    with open('runtimeconfig.json', 'r') as config_file:
+    with open('data/runtimeconfig.json', 'r') as config_file:
         data = json.load(config_file)
-    verbs_file = data.get('verbs_file')
-    adjectives_file = data.get('adjectives_file')
-    substantives_file = data.get('substantives_file')
-    long_sentences_file = data.get('long_text_file')
-    new_palindromes_file = data.get('new_palindromes_file')
-    converted_palindromes_file = data.get('converted_palindromes_file')
-    new_subs_palindromes_file = data['new_subs_palindromes_file']
-    new_verb_palindromes_file = data['new_verb_palindromes_file']
-    new_adj_palindromes_file = data['new_adj_palindromes_file']
-    new_long_text_palindromes_file = data['new_long_text_palindromes_file']
+    data_path = data.get('data_path')
+    verbs_file = data_path + data.get('verbs_file')
+    adjectives_file = data_path + data.get('adjectives_file')
+    substantives_file = data_path + data.get('substantives_file')
+    long_sentences_file = data_path + data.get('long_text_file')
+    new_palindromes_file = data_path + data.get('new_palindromes_file')
+    converted_palindromes_file = data_path + data.get('converted_palindromes_file')
+    new_subs_palindromes_file = data_path + data.get('new_subs_palindromes_file')
+    new_verb_palindromes_file = data_path + data.get('new_verb_palindromes_file')
+    new_adj_palindromes_file = data_path + data.get('new_adj_palindromes_file')
+    new_long_text_palindromes_file = data_path + data.get('new_long_text_palindromes_file')
 
 except OSError as err:
     print("Error with runtimeconfig.json: ", err)
@@ -625,7 +626,7 @@ class GameInstructions(QDialog):
     """
     TXT_WINDOWS_TITLE = "Peliohjeita"
 
-    def __init__(self, palindromes_file="palindromes.json"):
+    def __init__(self, palindromes_file=data_path + "palindromes.json"):
         super().__init__()
         self.instructions_ui = Ui_game_instructions_Dialog()  #
         self.instructions_ui.setupUi(self)
@@ -643,7 +644,7 @@ class InspectDialog(QDialog):
     """
     TXT_WINDOWS_TITLE = "Palindromien tarkastelu"
 
-    def __init__(self, palindromes_file="palindromes.json"):
+    def __init__(self, palindromes_file=data_path + "palindromes.json"):
         super().__init__()
         self.inspect_ui = Ui_inspect_Dialog()  # Tämä oletetaan olevan erillinen UI-luokka
         self.inspect_ui.setupUi(self)
@@ -942,7 +943,8 @@ class MainWindow(QMainWindow):
     TXT_GENERATE_PALINDROMES = "Palindromien generointi"
     TXT_INSPECT = "Tarkastele palindromeja"
 
-    def __init__(self, palindromes_file="palindromes.json", model_file="palindrome_word2vec.model"):
+    def __init__(self, palindromes_file=data_path + "palindromes.json",
+                 model_file=data_path + "palindrome_word2vec.model"):
         super().__init__()
         self.main_ui = Ui_first_window()
         self.main_ui.setupUi(self)

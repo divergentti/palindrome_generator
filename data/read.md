@@ -210,3 +210,11 @@ Added QT6 visualization and combined classes together.
 Git do not allow long files to be uploaded. So, delete word2vec model files (both) and let script make them again.
 File size of vectors_ngrams.npy is about 800 megabytes.
 model file is about 1.5 Mb
+
+8.10.2024:
+
+Created executable to build-directory with cx_Freeze. If you need to re-create executable, run 
+python setup.py build at the root (where PalindromiPeli.py resides)
+
+
+Enjoy!

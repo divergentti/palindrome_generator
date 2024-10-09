@@ -229,3 +229,9 @@ With Windows nltk packages was downloaded to wrong location. Fixed path so that
 now nltk tokenizers are downloaded under data-directory and model-files are kept
 in data-directory. You can safely delete data/tokenizers and word2vec-model files,
 because they will be recreated during startup.
+
+With Windows I was able to compile Windows executable (available under windows-version).
+For some unknown reason PyInstaller can not pack data-folder into distribution (see the spec file).
+So, you need to copy the exe and data-directory to any location to your Windows PC and
+first execution will download nltk library, extract tokenizers under data-directory and
+then word2vec model files will be placed to data.

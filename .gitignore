@@ -1,0 +1,10 @@
+*.log
+*.ui
+*.npy
+*.model
+data/nltk_data
+form_design/
+.idea/
+__pycache__/
+/.venv/
+venv/

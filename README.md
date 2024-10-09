@@ -1,3 +1,4 @@
+Latest update last.
 
 16.9.2024:
 
@@ -211,10 +212,20 @@ Git do not allow long files to be uploaded. So, delete word2vec model files (bot
 File size of vectors_ngrams.npy is about 800 megabytes.
 model file is about 1.5 Mb
 
+See [Medium](https://medium.com/@jari.p.hiltunen/enhanced-palindrome-game-with-qt6-visualization-version-0-32-46d3930a9ccf) 
+
 8.10.2024:
 
 Created executable to build-directory with cx_Freeze. If you need to re-create executable, run 
-python setup.py build at the root (where PalindromiPeli.py resides)
+python setup.py build at the root (where PalindromiPeli.py resides). However,
+this did not work with other workstation (Linux) and I removed build and dist.
+
+See [Medium](https://medium.com/@jari.p.hiltunen/distributing-your-python-application-a-guide-02e9405b774d)
 
 
-Enjoy!
+9.10.2024:
+
+With Windows nltk packages was downloaded to wrong location. Fixed path so that
+now nltk tokenizers are downloaded under data-directory and model-files are kept
+in data-directory. You can safely delete data/tokenizers and word2vec-model files,
+because they will be recreated during startup.

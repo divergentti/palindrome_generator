@@ -8,3 +8,7 @@ form_design/
 __pycache__/
 /.venv/
 venv/
+/dist/
+dist/
+/build/
+build/

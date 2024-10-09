@@ -238,9 +238,11 @@ then word2vec model files will be placed to data.
 
 Fixing nltk paths was done in MainWindow class like this: (data path = data/)
 
+```
 nltk_data_path = os.path.join(data_path,  'nltk_data')
 nltk.data.path.append(nltk_data_path)
 
 if not os.path.exists(os.path.join(data_path, model_file)):
             nltk.download('punkt', download_dir=nltk_data_path)
             nltk.download('punkt_tab', download_dir=nltk_data_path)
+```

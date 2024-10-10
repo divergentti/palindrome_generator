@@ -246,3 +246,16 @@ if not os.path.exists(os.path.join(data_path, model_file)):
             nltk.download('punkt', download_dir=nltk_data_path)
             nltk.download('punkt_tab', download_dir=nltk_data_path)
 ```
+10.10.2024:
+
+I finally got Linux distribution working with my Ollama/LLama3.2 advice (ChatGPT was not able to help):
+
+In the PalindromiPeli.spec, which is used by PyInstaller, I added as LLama3.2b adviced:
+
+```commandline
+ compiler_options={
+                 'CFLAGS': '-fPIC -I/usr/include',  # include XCB headers
+                 'LDFLAGS': '-L/usr/lib',            # link against xcb lib
+             },
+```
+and that seems to work if I copy the binary PalindromiPeli and data-folder to another Linux-workstation!

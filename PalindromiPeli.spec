@@ -33,6 +33,10 @@ a = Analysis(
     excludes=[],
     noarchive=False,
     optimize=0,
+    compiler_options={
+                 'CFLAGS': '-fPIC -I/usr/include',  # include XCB headers
+                 'LDFLAGS': '-L/usr/lib',            # link against xcb lib
+             },
 )
 pyz = PYZ(a.pure)
 

@@ -12,3 +12,6 @@ venv/
 dist/
 /build/
 build/
+/PalindromiPeli.dist/
+/PalindromiPeli.build/
+/PalindromiPeli.onefile-build/

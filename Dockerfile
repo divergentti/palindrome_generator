@@ -1,1 +1,1 @@
-FROM debian:bullseye-slim
+FROM python:slim-bullseye
